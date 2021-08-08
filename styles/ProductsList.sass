@@ -1,0 +1,36 @@
+
+@import colors
+
+.products-list
+    display: grid
+    grid-template-columns: 1fr 1fr 1fr 1fr
+    gap: 20px
+    position: relative
+    min-height: 300px
+    @media screen and (max-width: 1190px)
+        grid-template-columns: 1fr 1fr 1fr
+        
+    .component-loading-wrapper
+        // position: absolute
+        // justify-content: center
+        // left: 50vw
+        transform: translate(25vw,25vh)
+        // transform: translate(50vh,50vh)
+    @media screen and (max-width: 768px)
+        grid-template-columns: 1fr 1fr
+        .product-card
+            width: 100%
+            .product-card__image
+                width: 100%
+    // display: flex
+    // flex-wrap: wrap
+    // gap: 10px
+    // justify-content: center
+    // max-width: 100
+.category-title
+    display: flex
+    justify-content: center
+    align-items: center
+    min-height: 200px
+    width: 100%
+    color: $accentDarked

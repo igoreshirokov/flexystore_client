@@ -1,0 +1,73 @@
+.product
+    display: flex
+    flex-direction: row
+    color: $accent
+    gap: 25px
+    .product-info
+        width: 50%
+    h3
+        color: $main
+        line-height: 0.7
+        background: $accent
+        padding: 0
+        margin: 0
+        font-size: 4em
+    .product-price
+        font-size: 2.5em
+        font-weight: 900
+        color: $accent
+        &:nth-child(2)
+            font-weight: 600
+            font-size: 1em
+    .product-parametr-value
+        font-weight: 700
+    .product-parametr-title
+        color: $main
+        position: relative
+        font-weight: 700
+        font-size: 2rem!important
+        &::before
+            content: ''
+            position: absolute
+            top: 5px
+            left: 0
+            width: 100%
+            height: 80%
+            background: $accent
+            z-index: -1
+    .product-id, .product-price, .product-sizes
+        display: flex
+        flex-direction: row
+        justify-content: space-between
+        align-items: center
+    .product-price
+        position: relative
+    .porduct-price__current
+        padding-left: 100px
+        white-space: nowrap
+    .porduct-price__old
+        font-size: 1.5rem
+        align-self: start
+        text-decoration: line-through
+        background: $accentDarked
+        color: $main
+        position: absolute
+        right: 0
+        transform: translateX(100%)
+    button
+        width: 210px
+        height: 50px
+
+@media screen and (max-width: 830px)
+    .product
+        flex-direction: column
+        gap: 0
+        align-items: flex-start
+        .product-info
+            width: 100%
+
+.product-gallery
+    display: flex
+// .product-price
+
+// .product-tags

@@ -1,0 +1,377 @@
+.header
+    z-index: 10
+
+    ul, .logo
+        cursor: pointer
+    .logo
+        position: absolute
+        top: 0
+        left: 0
+    .header__first-line
+        z-index: 10
+        display: flex
+        flex-direction: row
+        justify-content: center
+        align-items: flex-start
+        ul
+            padding: 0
+            margin: 0
+            display: flex
+            flex-direction: row
+            gap: 30px
+            li
+                list-style-type: none
+    .header__second-line
+        display: flex
+        flex-direction: row
+        justify-content: center
+        ul
+            padding: 0
+            margin: 0
+            display: flex
+            flex-direction: row
+            li
+                width: 200px
+                padding: 10px
+                list-style-type: none
+                ul
+                    display: flex
+                    flex-direction: column
+                    li
+                        transition: .3s
+                        &:hover
+                            font-weight: 900
+                            color: $accentDarked
+                            position: relative
+                            box-sizing: content-box
+                            &::after
+                                content: ''
+                                height: 2px
+                                background-color: $accentDarked
+                                position: absolute
+                                bottom: 0
+                                left: 0
+                                animation: lineWidthMenuItem .4s both
+
+            .children-categories
+                display: none
+            .children-categories.active
+                display: flex
+    .main-nav
+        ul
+            li
+                padding: 10px 20px
+                &:hover
+                    font-weight: 900
+                    color: $accentDarked
+                    position: relative
+                    &::after
+                        content: ''
+                        height: 2px
+                        left: 0
+                        background-color: $accentDarked
+                        position: absolute
+                        bottom: 0
+                        animation: lineWidthMenuItem2 .4s both
+.header-mobile
+    z-index: 10
+    .header__first-line
+        z-index: 10
+        height: 70px
+        display: flex
+        flex-direction: row
+        justify-content: space-between
+        padding: 15px
+        position: fixed
+        width: 100vw
+        top: 0
+        left: 0
+        box-sizing: border-box
+        background: $main
+        .navigation
+            .navigation-wrapper
+                position: fixed
+                width: 100vw
+                height: 100vh
+                left: 0
+                top: 0
+                background: $opacityBackground
+                animation: fadeIn .3s
+                z-index: 10
+                .categories-nav
+                    z-index: 11
+                    background: $main
+                    height: 100vh
+                    position: absolute
+                    top: 0
+                    right: 0
+                    min-width: 70%
+                    padding-top: 60px
+                    animation: fromright .4s
+                    ul
+                        display: flex
+                        flex-direction: column
+                        padding: 0
+                        li
+                            padding-top: 20px
+                            padding-left: 20px
+                            align-items: center
+                            min-height: 50px
+                            list-style-type: none
+                            ul
+                                display: flex
+                                flex-direction: column
+                                li
+                                    display: flex
+                                    align-items: center
+                                    height: 50px
+                                    padding-left: 20px
+                                    padding-top: 0
+                                    list-style-type: none
+                                    &:hover
+                                        font-weight: 900
+                                        color: $accentDarked
+                                        position: relative
+                                        &::after
+                                            content: ''
+                                            height: 2px
+                                            background-color: $accentDarked
+                                            position: absolute
+                                            bottom: 0
+                                            animation: lineWidthMenuItem .4s both
+                    .children-categories
+                        display: none
+                    .children-categories.active
+                        display: flex
+            .navigation-button
+                cursor: pointer
+                display: flex
+                flex-direction: column
+                width: 60px
+                box-sizing: border-box
+                padding: 20px
+                position: relative
+                z-index: 12
+                span
+                    top: 0
+                    left: 0
+                    width: 100%
+                    height: 2px
+                    background: $accent
+                    transition: .4s
+                    position: absolute
+                    &:nth-child(1)
+                        top: 10px
+                    &:nth-child(3)
+                        top: 30px
+                    &:nth-child(2)
+                        top: 20px
+            .navigation-button.navigation-button-close
+                z-index: 12
+                span
+                    &:nth-child(1)
+                        top: 20px
+                        transform: rotate(45deg)
+                    &:nth-child(3)
+                        top: 20px
+                        transform: rotate(-45deg)
+                    &:nth-child(2)
+                        transform: translate(-100%) scale(0)
+
+.header-mobile
+    z-index: 10
+    .header__second-line
+        z-index: 10
+        position: fixed
+        bottom: 0
+        background: $accent
+        height: 70px
+        width: 100vw
+        z-index: 10
+        .main-nav
+            height: 100%
+            position: relative
+            ul
+                height: inherit
+                padding: 0
+                margin: 0
+                display: flex
+                flex-direction: row
+                gap: 0
+                li
+                    width: 25%
+                    color: $main
+                    height: inherit
+                    display: flex
+                    flex-direction: column
+                    justify-content: center
+                    align-items: center
+                    transition: .3s
+                    &:nth-child(1)
+                        &::before
+                            content: url('data:image/svg+xml;charset=UTF-8,<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 13H18V11H6V13ZM3 6V8H21V6H3ZM10 18H14V16H10V18Z" fill="white"/></svg>')
+                            width: 30px
+                            height: 30px
+                            display: block
+                    &:nth-child(2)
+                        &::before
+                            content: url('data:image/svg+xml;charset=UTF-8,<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 4C2.46957 4 1.96086 4.21071 1.58579 4.58579C1.21071 4.96086 1 5.46957 1 6V17H3C3 17.7956 3.31607 18.5587 3.87868 19.1213C4.44129 19.6839 5.20435 20 6 20C6.79565 20 7.55871 19.6839 8.12132 19.1213C8.68393 18.5587 9 17.7956 9 17H15C15 17.7956 15.3161 18.5587 15.8787 19.1213C16.4413 19.6839 17.2044 20 18 20C18.7956 20 19.5587 19.6839 20.1213 19.1213C20.6839 18.5587 21 17.7956 21 17H23V12L20 8H17V4H3ZM10 6L14 10L10 14V11H4V9H10V6ZM17 9.5H19.5L21.47 12H17V9.5ZM6 15.5C6.39782 15.5 6.77936 15.658 7.06066 15.9393C7.34196 16.2206 7.5 16.6022 7.5 17C7.5 17.3978 7.34196 17.7794 7.06066 18.0607C6.77936 18.342 6.39782 18.5 6 18.5C5.60218 18.5 5.22064 18.342 4.93934 18.0607C4.65804 17.7794 4.5 17.3978 4.5 17C4.5 16.6022 4.65804 16.2206 4.93934 15.9393C5.22064 15.658 5.60218 15.5 6 15.5V15.5ZM18 15.5C18.3978 15.5 18.7794 15.658 19.0607 15.9393C19.342 16.2206 19.5 16.6022 19.5 17C19.5 17.3978 19.342 17.7794 19.0607 18.0607C18.7794 18.342 18.3978 18.5 18 18.5C17.6022 18.5 17.2206 18.342 16.9393 18.0607C16.658 17.7794 16.5 17.3978 16.5 17C16.5 16.6022 16.658 16.2206 16.9393 15.9393C17.2206 15.658 17.6022 15.5 18 15.5Z" fill="white"/></svg>')
+                            width: 30px
+                            height: 30px
+                            display: block
+                    &:nth-child(3)
+                        &::before
+                            content: url('data:image/svg+xml;charset=UTF-8,<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 8H4V6H20V8ZM20 18H4V12H20V18ZM20 4H4C2.89 4 2 4.89 2 6V18C2 18.5304 2.21071 19.0391 2.58579 19.4142C2.96086 19.7893 3.46957 20 4 20H20C20.5304 20 21.0391 19.7893 21.4142 19.4142C21.7893 19.0391 22 18.5304 22 18V6C22 4.89 21.1 4 20 4Z" fill="white"/></svg>')
+                            width: 30px
+                            height: 30px
+                            display: block
+                    &:nth-child(4)
+                        &::before
+                            content: url('data:image/svg+xml;charset=UTF-8,<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19.1 8.7C20.9 10.5 20.9 13.3 19.1 15.2L20.1 16.2C22.6 13.9 22.6 10.1 20.1 7.7L19.1 8.7ZM18 9.8L17 10.8C17.5 11.5 17.5 12.4 17 13.1L18 14.1C19.2 12.9 19.2 11.1 18 9.8ZM14 1H4C3.46957 1 2.96086 1.21071 2.58579 1.58579C2.21071 1.96086 2 2.46957 2 3V21C2 21.5304 2.21071 22.0391 2.58579 22.4142C2.96086 22.7893 3.46957 23 4 23H14C14.5304 23 15.0391 22.7893 15.4142 22.4142C15.7893 22.0391 16 21.5304 16 21V3C16 2.46957 15.7893 1.96086 15.4142 1.58579C15.0391 1.21071 14.5304 1 14 1ZM14 20H4V4H14V20Z" fill="white"/></svg>')
+                            width: 30px
+                            height: 30px
+                            display: block
+
+                    &:hover
+                        background: $accentDarked
+
+.social-icons
+    display: flex
+    justify-content: center
+    gap: 20px
+
+.icon
+    width: 30px
+    height: 30px
+.iconCatalog
+    background-image: url('/icons/catalog.svg')
+    background-repeat: no-repeat
+    background-size: contain
+.iconDelivery
+    background-image: url('/icons/delivery.svg')
+    background-repeat: no-repeat
+    background-size: contain
+.iconPayment
+    background-image: url('/icons/payment.svg')
+    background-repeat: no-repeat
+    background-size: contain
+.iconContacts
+    background-image: url('/icons/contacts.svg')
+    background-repeat: no-repeat
+    background-size: contain
+
+@keyframes fromright
+    0%
+        transform: translateX(100%)
+    100%
+        transform: translateX(0)
+@keyframes fadeIn
+    0%
+        opacity: 0
+    100%
+        opacity: 1
+
+    // .logo
+
+    // .categories-nav
+    //     ul
+    //         li
+    // .children-categories
+    //     display: none
+    // .children-categories.active
+    //     display: flex
+
+.active-menu-item
+    font-weight: 900
+    color: $accentDarked
+    position: relative
+    &::after
+        content: ''
+        height: 2px
+        background-color: $accentDarked
+        position: absolute
+        bottom: 0
+        left: 0
+        animation: lineWidthMenuItem .4s both
+.active-menu-item2
+    font-weight: 900
+    color: $accentDarked
+    position: relative
+    &::after
+        content: ''
+        height: 2px
+        background-color: $accentDarked
+        position: absolute
+        bottom: 0
+        left: 0
+        animation: lineWidthMenuItem2 .4s both
+
+// .iconIndex
+
+.download
+    position: relative
+    display: flex
+    flex-direction: row
+    padding: 5px 10px
+    margin-top: 10px
+    border: 2px solid $accent
+    justify-content: center
+    align-items: center
+    height: 50px
+    color: $accent
+    font-weight: 900
+    font-size: 1em
+    text-decoration: none
+    &::before
+        content: url('data:image/svg+xml;charset=UTF-8,<svg width="14" height="17" viewBox="0 0 14 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 17H14V15H0V17ZM14 6H10V0H4V6H0L7 13L14 6Z" fill="rgb(51,51,51)"/></svg>')
+        display: flex
+        align-items: center
+        width: 30px
+        height: 30px
+
+@keyframes lineWidthMenuItem
+    0%
+        width: 0
+    100%
+        width: 50%
+
+@keyframes lineWidthMenuItem2
+    0%
+        width: 0
+    100%
+        width: 100%
+
+.left-side
+    ul
+        cursor: pointer
+        padding: 0
+        display: flex
+        flex-direction: column
+        li
+            list-style-type: none
+            ul
+                padding: 10px
+                li
+                    &:hover
+                        font-weight: 900
+                        color: $accentDarked
+                        position: relative
+                        &::after
+                            content: ''
+                            height: 2px
+                            background-color: $accentDarked
+                            position: absolute
+                            bottom: 0
+                            left: 0
+                            animation: lineWidthMenuItem .4s both
+
+
+.logo
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 100px
+    font-size: 12px
+    font-weight: 600
+    text-align: center
+    padding: 10px 20px

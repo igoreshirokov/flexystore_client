@@ -11,7 +11,10 @@
   "dependencies": {
     "next": "11.0.1",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-responsive": "*",
+    "sass": "^1.37.0",
+    "swiper": "^6.8.0"
   },
   "devDependencies": {
     "eslint": "7.32.0",

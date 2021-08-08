@@ -1,0 +1,128 @@
+@import 'swiper/swiper.scss'
+@import ProductsList
+@import loaders
+@import banners
+@import colors
+@import ProductGallery
+@import ProductPage
+@import Nav
+@import ProductCard
+@import popup
+@import socialicons
+@import payments
+
+html, body
+    padding: 0
+    margin: 0
+    font-family: 'Roboto'
+    color: $accent
+    
+
+.content
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+    margin: 0 auto
+    justify-content: center
+
+.content-index
+    display: block
+    flex-direction: row
+    flex-wrap: wrap
+    margin: 0 auto
+.content
+    padding: 0 15px
+    box-sizing: border-box
+
+@media (min-width: 575.98px)
+    .content
+        padding: 0 calc(50% - 270px)
+
+@media (min-width: 767.98px)
+    .content
+        padding: 0 calc(50% - 360px)
+
+@media (min-width: 991.98px)
+    .content
+        padding: 0 calc(50% - 480px)
+
+@media (min-width: 1199.98px)
+    .content
+        padding: 0 calc(50% - 590px)
+
+.content
+    padding-bottom: 150px
+
+.left-side
+    min-width: 20%
+    padding-top: 200px
+    background-color: $main
+    z-index: 10
+
+.main-layout
+    padding-top: 70px
+    padding-bottom: 70px
+    padding-left: 10px
+    padding-right: 10px
+    box-sizing: border-box
+    animation: mainLayout .3s
+    @media screen and (min-width: 992px)
+        width: 80%
+        padding-top: 70px
+    .double-menu
+        width: 30%
+
+.main-layout-index
+    // padding-top: 70px
+    padding-bottom: 90px
+    padding-left: 10px
+    padding-right: 10px
+
+button
+    border: 2px solid $accent
+    background: transparent
+    color: $accent
+    font-weight: 800
+    cursor: pointer
+
+@keyframes mainLayout
+    0%
+        transform: translateX(100%)
+    100%
+        transform: translateX(0)
+
+    
+
+.back-button
+    width: 200px
+    height: 40px
+    margin: 20px 0
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-direction: row
+    transition: .3s
+    &:hover
+        &::before
+            transition: .3s
+            transform: translate(-50px, 3px)
+    &::before
+        content: url('data:image/svg+xml;charset=UTF-8,<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.99993 13L8.99993 17L7.59993 18.42L1.17993 12L7.59993 5.58002L8.99993 7.00002L4.99993 11H20.9999V13H4.99993ZM20.9999 6.00002V8.00002H10.9999V6.00002H20.9999ZM20.9999 16V18H10.9999V16H20.9999Z" fill="rgb(51,51,51)"/></svg>')
+        transform: translateY(3px)
+
+.button-inactive
+    background: $accent
+    color: $main
+    transition: .3s
+
+
+
+.contacts
+    max-width: 400px
+    .socialicons
+        justify-content: flex-start
+    .phonenumber
+        a
+            color: $accent
+            font-weight: 600
+            text-decoration: none
