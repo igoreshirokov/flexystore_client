@@ -3,7 +3,7 @@ import MainLayout from '../layouts/MainLayout';
 
 const Delivery = () => {
     return (
-        <MainLayout>
+        <MainLayout  title="Доставка">
             <h2>Доставка по г. Москва и МО</h2>
             <table>
                 <tr><td>Внутри МКАД</td><td>500 руб.</td></tr>

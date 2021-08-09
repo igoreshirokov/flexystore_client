@@ -13,22 +13,22 @@ export default function Home({ products, message }) {
   const { setProducts } = useContext(CatalogContext)
   const [errorMessage, setErrorMessage] = useState(false)
 
-  useEffect(() => {
+  // useEffect(() => {
 
-    if (message) {
-      return setErrorMessage(message.error)
-    }
-    products ? setProducts(products) : async () => {
-      const req = await fetch(BASE_URL + 'api' + '/' + 'tags' + '/' + 'top');
-      const products = await req.json();
-      setProducts(products);
-    }
-  }, [])
+  //   if (message) {
+  //     return setErrorMessage(message.error)
+  //   }
+  //   products ? setProducts(products) : async () => {
+  //     const req = await fetch(BASE_URL + 'api' + '/' + 'tags' + '/' + 'top');
+  //     const products = await req.json();
+  //     setProducts(products);
+  //   }
+  // }, [])
 
 
 
   return (
-    <MainLayout>
+    <MainLayout title={`Каталог`}>
       <Banners />
       <div>
         {/* {errorMessage && <div className="error-message">{errorMessage}</div>} */}

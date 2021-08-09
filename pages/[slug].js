@@ -12,18 +12,21 @@ export default function Slug({ products, message }) {
     const { setProducts, setLoading } = useContext(CatalogContext)
     const [errorMessage, setErrorMessage] = useState(false)
 
-    useEffect(async () => {
-        setLoading(true)
-        if (products[0].categories !== slug) {
-            const req = await fetch(BASE_URL + 'api' + '/' + 'products' + '/' + router.query.slug);
-            req.status === 404 ? router.push('/404') : setProducts(await req.json());
-
+    useEffect(() => {
+        const fetchData = async () => {
+            setLoading(true)
+            if (products[0].categories !== slug) {
+                const req = await fetch(BASE_URL + 'api' + '/' + 'products' + '/' + router.query.slug);
+                req.status === 404 ? router.push('/404') : setProducts(await req.json());
+    
+            }
+    
         }
-
+        fetchData();
     }, [router])
 
     return (
-        <MainLayout>
+        <MainLayout title={`Каталог - ${currentCategory}`}>
             <div>
                 {!loading && currentCategory && <div className="category-title"><h1>{currentCategory}</h1></div>}
                 <ProductsList />

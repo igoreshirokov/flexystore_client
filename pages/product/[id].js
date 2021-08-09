@@ -17,14 +17,19 @@ export default function Product({ product, message }) {
 
 
     useEffect(() => {
-        if (message) {
-            return setErrorMessage(message.error)
+        if (message !== null) {
+            setErrorMessage(message.error)
         }
-        product ? setProduct(product) : async () => {
-            setLoading(true)
-            const req = await fetch(BASE_URL + 'api' + '/' + 'product' + '/' + id);
-            const product = await req.json();
-            setProduct(product);
+        if (product.id) {
+            setProduct(product)
+        } else {
+            (async () => {
+                setLoading(true);
+                const req = await fetch(BASE_URL + 'api' + '/' + 'product' + '/' + id);
+                const product = await req.json();
+                setProduct(product);
+
+            })()
         }
     }, [])
 
@@ -53,7 +58,6 @@ export async function getStaticPaths() {
 
 }
 export async function getStaticProps({ params }) {
-
     const req = await fetch(BASE_URL + 'api' + '/' + 'product' + '/' + params.id)
     if (req.status === 404) {
         return { props: { product: null, message: await req.json() } }

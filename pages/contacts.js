@@ -1,11 +1,11 @@
-import React from 'react';
 import SocialIcons from '../components/ui/SocialIcons';
 import { LINKS } from '../contstants';
 import MainLayout from '../layouts/MainLayout';
 
+
 const Contacts = () => {
     return (
-        <MainLayout>
+        <MainLayout title="Контакты">
             <div className="contacts">
                 <div className="phonenumber">
                     <h5>Наш телефон:</h5>
