@@ -64,7 +64,8 @@ const Logo = () => {
     const router = useRouter()
     return (
         <div onClick={() => router.push('/')} className="logo">
-            Обувь и аксессуары
+            <span className="logo-bold">FLEXY</span>
+            <span className="logo-think">STORE</span>
         </div>
     )
 }
