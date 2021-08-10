@@ -2,7 +2,7 @@ import { CatalogContext } from "../store/CatalogContext"
 import { useContext, useEffect, useState } from "react"
 import ProductsList from "../components/ProductsList"
 import router, { useRouter } from "next/router"
-import { BASE_URL } from '../contstants'
+import { BACK_URL, BASE_URL } from '../contstants'
 import MainLayout from '../layouts/MainLayout'
 
 export default function Slug({ products, message }) {
@@ -16,7 +16,7 @@ export default function Slug({ products, message }) {
         const fetchData = async () => {
             setLoading(true)
             if (products[0].categories !== slug) {
-                const req = await fetch(BASE_URL + 'api' + '/' + 'products' + '/' + router.query.slug);
+                const req = await fetch(BACK_URL + 'products' + '/category/' + router.query.slug);
                 req.status === 404 ? router.push('/404') : setProducts(await req.json());
     
             }
@@ -37,7 +37,7 @@ export default function Slug({ products, message }) {
 
 
 export async function getStaticPaths() {
-    const res = await fetch(BASE_URL + 'api' + '/' + 'categories');
+    const res = await fetch(BACK_URL + 'categories');
     const categories = await res.json()
     const paths = []
 
@@ -51,7 +51,7 @@ export async function getStaticPaths() {
 }
 export async function getStaticProps({ params }) {
 
-    const req = await fetch(BASE_URL + 'api' + '/' + 'products' + '/' + params.slug)
+    const req = await fetch(BACK_URL + 'products' + '/category/' + params.slug)
     if (req.status === 404) {
         return { props: { products: null, message: await req.text() } }
     } else {

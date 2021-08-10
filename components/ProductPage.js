@@ -33,7 +33,7 @@ const ProductPage = () => {
                     <div className="product-price">
                         <span className="product-parametr-title">цена</span>
                         <span className="porduct-price__current">{product.price} ₽</span>
-                        {product.oldPrice && <span className="porduct-price__old">{product.oldPrice} ₽</span>}
+                        {product.oldPrice > 0 && <span className="porduct-price__old">{product.oldPrice} ₽</span>}
                     </div>
                     <button className={popup ? `button-inactive` : ''} onClick={() => setPopup(!popup)}>Как заказать?</button>
                     {popup && <PopupBuy />}

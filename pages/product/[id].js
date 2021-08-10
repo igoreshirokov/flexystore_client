@@ -2,7 +2,7 @@ import { CatalogContext } from "../../store/CatalogContext"
 import { useContext, useEffect, useState } from "react"
 import ProductPage from "../../components/ProductPage"
 import router, { useRouter } from "next/router"
-import { BASE_URL } from '../../contstants'
+import { BASE_URL, BACK_URL } from '../../contstants'
 import MainLayout from "../../layouts/MainLayout"
 import { CategoriesLinksThree } from "../../components/ui/Nav"
 import { useMediaQuery } from "react-responsive"
@@ -25,7 +25,7 @@ export default function Product({ product, message }) {
         } else {
             (async () => {
                 setLoading(true);
-                const req = await fetch(BASE_URL + 'api' + '/' + 'product' + '/' + id);
+                const req = await fetch(BACK_URL + 'products' + '/' + id);
                 const product = await req.json();
                 setProduct(product);
 
@@ -46,7 +46,7 @@ export default function Product({ product, message }) {
 
 
 export async function getStaticPaths() {
-    const res = await fetch(BASE_URL + 'api' + '/' + 'products');
+    const res = await fetch(BACK_URL + 'products');
     const products = await res.json()
     const paths = []
 
@@ -58,7 +58,7 @@ export async function getStaticPaths() {
 
 }
 export async function getStaticProps({ params }) {
-    const req = await fetch(BASE_URL + 'api' + '/' + 'product' + '/' + params.id)
+    const req = await fetch(BACK_URL + 'products' + '/' + params.id)
     if (req.status === 404) {
         return { props: { product: null, message: await req.json() } }
     } else {

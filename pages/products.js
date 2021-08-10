@@ -2,7 +2,7 @@ import { CatalogContext } from "../store/CatalogContext"
 import { useContext, useEffect, useState } from "react"
 import ProductsList from "../components/ProductsList"
 import router, { useRouter } from "next/router"
-import { BASE_URL } from '../contstants'
+import { BACK_URL } from '../contstants'
 import MainLayout from "../layouts/MainLayout"
 import { LoadingComponent, LoadingScreen } from "../components/ui/Loading"
 
@@ -23,7 +23,7 @@ export default function Slug({ products, message }) {
                 setProducts(products);
                 return
             } else {
-                const req = await fetch(BASE_URL + 'api' + '/' + 'products')
+                const req = await fetch(BACK_URL + 'products')
                 if (req.status === 404) {
                     setErrorMessage(await req.json());
                 } else {
@@ -48,7 +48,7 @@ export default function Slug({ products, message }) {
 
 export async function getStaticProps() {
 
-    const req = await fetch(BASE_URL + 'api' + '/' + 'products')
+    const req = await fetch(BACK_URL + 'products')
     if (req.status === 404) {
         return { props: { products: null, message: await req.json() } }
     } else {

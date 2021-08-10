@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { CatalogContext } from '../../store/CatalogContext';
-import { BASE_URL } from '../../contstants';
+import { BACK_URL, BASE_URL } from '../../contstants';
 import router, { useRouter } from 'next/router';
 import Link from 'next/link';
 import { LoadingComponent } from './Loading';
@@ -155,7 +155,7 @@ const Nav = () => {
 
     useEffect(async () => {
         if (!categoriesList.length) {
-            const req = await fetch(`${BASE_URL}api/categories`)
+            const req = await fetch(`${BACK_URL}categories`)
             const res = await req.json();
             setCategories(res)
         }

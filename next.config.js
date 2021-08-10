@@ -5,5 +5,7 @@ module.exports = {
     includePaths: [path.join(__dirname, 'styles')],
   },
   reactStrictMode: true,
+  images: {
+    domains: ['localhost'],
+  },
 }
-
