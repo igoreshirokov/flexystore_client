@@ -6,6 +6,6 @@ module.exports = {
   },
   reactStrictMode: true,
   images: {
-    domains: ['localhost'],
+    domains: ['localhost', 'flexystore.ru', 'api.flexystore.ru'],
   },
 }
